@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel da coordenação · GRUPAMENTO</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#050708">
+<link rel="icon" href="/assets/brasao.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Special+Elite&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+<header class="cabecalho">
+  <div class="cabecalho__barra">
+    <a class="marca" href="/">
+      <img src="/assets/brasao.jpg" alt="Brasão do GRUPAMENTO">
+      <span class="marca__texto">
+        <strong>GRUPAMENTO</strong>
+        <span>Painel da coordenação</span>
+      </span>
+    </a>
+    <nav class="menu" id="menu-principal">
+      <a href="/">Ver site</a>
+      <button class="btn btn--neutro btn--pequeno" type="button" id="btn-sair" hidden>Sair</button>
+    </nav>
+  </div>
+</header>
+
+<main class="pagina-admin">
+  <div class="wrap">
+
+    <!-- ============ LOGIN ============ -->
+    <section class="login" id="tela-login" hidden>
+      <span class="etiqueta">Acesso restrito</span>
+      <h1>Painel da coordenação</h1>
+      <p>Área reservada à diretoria do GRUPAMENTO para acompanhar as inscrições da liga.</p>
+
+      <form id="form-login">
+        <label for="usuario">Usuário</label>
+        <input type="text" id="usuario" name="usuario" autocomplete="username" required>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" autocomplete="current-password" required>
+
+        <div id="login-alerta"></div>
+        <button class="btn btn--solido" type="submit" style="margin-top:14px">Entrar</button>
+      </form>
+    </section>
+
+    <!-- ============ PAINEL ============ -->
+    <section id="tela-painel" hidden>
+      <div class="admin__topo">
+        <div>
+          <span class="etiqueta">Inscrições · Liga 2026</span>
+          <h1>Fichas recebidas</h1>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn--pequeno" type="button" id="btn-atualizar">Atualizar</button>
+          <button class="btn btn--solido btn--pequeno" type="button" id="btn-csv">Exportar CSV</button>
+        </div>
+      </div>
+
+      <div class="cartoes" id="cartoes"></div>
+
+      <div class="filtros">
+        <input type="search" id="filtro-busca" placeholder="Buscar por nome, e-mail, CPF, matrícula ou protocolo" aria-label="Buscar">
+        <select id="filtro-status" aria-label="Filtrar por status"><option value="">Todos os status</option></select>
+        <select id="filtro-carreira" aria-label="Filtrar por carreira"><option value="">Todas as carreiras</option></select>
+        <select id="filtro-periodo" aria-label="Filtrar por período"><option value="">Todos os períodos</option></select>
+        <button class="btn btn--neutro btn--pequeno" type="button" id="btn-limpar">Limpar</button>
+      </div>
+
+      <div class="tabela-caixa">
+        <table>
+          <thead>
+            <tr>
+              <th>Protocolo</th>
+              <th>Candidato</th>
+              <th>Período</th>
+              <th>Carreira</th>
+              <th>Status</th>
+              <th>Recebida em</th>
+            </tr>
+          </thead>
+          <tbody id="corpo-tabela"></tbody>
+        </table>
+        <div class="vazio" id="tabela-vazia" hidden>Nenhuma inscrição encontrada com estes filtros.</div>
+      </div>
+
+      <div class="paginacao">
+        <span id="paginacao-texto">—</span>
+        <span style="display:flex;gap:10px">
+          <button class="btn btn--neutro btn--pequeno" type="button" id="btn-anterior">Anterior</button>
+          <button class="btn btn--neutro btn--pequeno" type="button" id="btn-proxima">Próxima</button>
+        </span>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ============ DETALHE ============ -->
+<dialog class="detalhe" id="detalhe">
+  <div class="detalhe__topo">
+    <div>
+      <h2 id="detalhe-nome">—</h2>
+      <p id="detalhe-protocolo">—</p>
+    </div>
+    <button class="detalhe__fechar" type="button" id="detalhe-fechar" aria-label="Fechar">✕</button>
+  </div>
+  <div class="detalhe__corpo">
+    <div id="detalhe-conteudo"></div>
+
+    <div class="detalhe__acoes">
+      <div>
+        <label for="detalhe-status">Status da inscrição</label>
+        <select id="detalhe-status"></select>
+      </div>
+      <div>
+        <label for="detalhe-observacoes">Observações internas</label>
+        <textarea id="detalhe-observacoes" placeholder="Anotações da coordenação sobre esta ficha."></textarea>
+      </div>
+      <div id="detalhe-alerta"></div>
+      <div class="linha">
+        <button class="btn btn--solido btn--pequeno" type="button" id="detalhe-salvar">Salvar alterações</button>
+        <button class="btn btn--perigo btn--pequeno" type="button" id="detalhe-excluir">Excluir ficha</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script src="/js/admin.js" defer></script>
+</body>
+</html>

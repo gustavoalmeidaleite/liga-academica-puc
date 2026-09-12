@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ficha de inscrição · GRUPAMENTO</title>
+<meta name="description" content="Cadastro de novos membros da Liga Acadêmica de Práticas e Estudos Policiais da PUC Goiás.">
+<meta name="theme-color" content="#050708">
+<link rel="icon" href="/assets/brasao.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Special+Elite&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+<a class="pular-para-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="cabecalho">
+  <div class="cabecalho__barra">
+    <a class="marca" href="/">
+      <img src="/assets/brasao.jpg" alt="Brasão do GRUPAMENTO">
+      <span class="marca__texto">
+        <strong>GRUPAMENTO</strong>
+        <span>Liga Acadêmica · PUC Goiás</span>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="menu" id="menu-principal">
+      <a href="/#dossie">O Dossiê</a>
+      <a href="/#metodologia">Metodologia</a>
+      <a href="/#diretoria">Diretoria</a>
+      <a href="/#evento">O Evento</a>
+      <a href="/inscricao" aria-current="page">Inscrição</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo" class="pagina-inscricao">
+  <div class="wrap">
+
+    <div class="inscricao__topo">
+      <span class="etiqueta">Dossiê 06 · Ficha de inscrição</span>
+      <h1>Abra sua ficha no GRUPAMENTO</h1>
+      <p>
+        Seis etapas curtas. Não existe resposta certa ou errada — a ficha é mais completa porque
+        nos ajuda a te conhecer de verdade e te acompanhar melhor dentro da liga. Suas respostas
+        ficam salvas neste navegador enquanto você preenche.
+      </p>
+    </div>
+
+    <div class="inscricao__layout">
+
+      <!-- menu de cadastro -->
+      <aside class="menu-cadastro" aria-label="Etapas do cadastro">
+        <h2>Etapas do cadastro</h2>
+        <ul class="menu-cadastro__lista" id="menu-etapas"></ul>
+
+        <div class="progresso">
+          <div class="progresso__barra"><i id="progresso-barra"></i></div>
+          <p class="progresso__texto" id="progresso-texto">Etapa 1 de 6</p>
+        </div>
+      </aside>
+
+      <!-- formulário -->
+      <section>
+        <form id="form-inscricao" novalidate autocomplete="on">
+          <div class="painel">
+            <div id="area-formulario">
+              <div class="painel__cabecalho">
+                <span class="etiqueta" id="etapa-indice">Etapa 1</span>
+                <h2 id="etapa-titulo">Carregando…</h2>
+                <p id="etapa-descricao">Preparando sua ficha.</p>
+              </div>
+
+              <div class="campos" id="campos"></div>
+
+              <div class="armadilha" aria-hidden="true">
+                <label for="website">Não preencha este campo</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div id="alerta-area"></div>
+
+              <div class="painel__acoes">
+                <button class="btn btn--neutro" type="button" id="btn-voltar">Voltar</button>
+                <button class="btn btn--solido" type="button" id="btn-avancar">Continuar</button>
+              </div>
+              <p class="salvo" id="salvo-em"></p>
+            </div>
+
+            <!-- tela de conclusão -->
+            <div class="conclusao" id="conclusao" hidden>
+              <div class="conclusao__selo" aria-hidden="true">✓</div>
+              <h2>Ficha registrada</h2>
+              <p>
+                Seus dados foram enviados para a coordenação do GRUPAMENTO. Fique de olho no seu
+                e-mail: é lá que vamos confirmar sua entrada na liga e avisar sobre os próximos passos.
+              </p>
+              <p class="conclusao__protocolo" id="protocolo">—</p>
+              <p>Guarde este número de protocolo. Ele identifica sua inscrição junto à coordenação.</p>
+              <div class="hero__acoes" style="justify-content:center;margin-top:26px">
+                <a class="btn" href="/">Voltar ao início</a>
+                <button class="btn btn--neutro" type="button" id="btn-nova">Enviar outra ficha</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape__base">
+      <span>© 2026 GRUPAMENTO · Liga Acadêmica de Práticas e Estudos Policiais</span>
+      <span>PUC Goiás · Campus V</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/nav.js" defer></script>
+<script src="/js/inscricao.js" defer></script>
+</body>
+</html>
